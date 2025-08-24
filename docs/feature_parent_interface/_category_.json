@@ -1,0 +1,8 @@
+{
+  "label": "Feature Parent Interface",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Interface for various condition interfaces to help plugin users in inputting values intended by the developer"
+  }
+}

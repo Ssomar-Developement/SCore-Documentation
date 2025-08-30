@@ -158,7 +158,9 @@ Write the condition logic inside of the hasCondition() if statement.
 Go to [Dependency Management](../dependency_management.md) if you want to try adding external api
 to your conditions.
 :::
-
+:::warning
+To make the condition return its invalid message, use the `runInvalidCondition(request);` method call before your `return false` statements.
+:::
 :::note
 How to get the instance of the entity involved for this condition?  
 `Entity entity = request.getEntity();`
@@ -169,31 +171,34 @@ How to get the instance of the entity involved for this condition?
 <summary>Sample logic written in `verifCondition()`</summary>
 
 ```java
-@Override
-public boolean verifCondition(EntityConditionRequest request) {
-    if (hasCondition() && SCore.hasWorldGuard && SCore.hasWorldEdit) {
-        Entity entity = request.getEntity();
-        Location loc = BukkitAdapter.adapt(entity.getLocation());
-        RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
-        RegionManager regions = container.get(BukkitAdapter.adapt(entity.getWorld()));
-
-        if (regions == null) return false;
-
-        ApplicableRegionSet set = regions.getApplicableRegions(loc.toVector().toBlockPoint());
-
-        for (String name : getCondition().getValue(request.getSp())) {
-            for (ProtectedRegion region : set) {
-                if (region.getId().equalsIgnoreCase(name)) {
-                    return true;
+    @Override
+    public boolean verifCondition(EntityConditionRequest request) {
+        if (hasCondition()) {
+            
+            Entity entity = request.getEntity();
+            // return false automatically if entity is not sheep
+            if (!(entity instanceof Sheep)) return false;
+1
+            boolean notValid = true;
+            for (String name : getCondition().getValue(request.getSp())) {
+                if (StringConverter.decoloredString(
+                        String.valueOf(
+                                ((Sheep) entity).getColor()
+                        )
+                ).equalsIgnoreCase(name)) {
+                    notValid = false;
+                    break;
                 }
             }
+
+            if (notValid) {
+                runInvalidCondition(request);
+                return false;
+            }
         }
-        return false;
 
-
-    } 
-	return true;
-}
+        return true;
+    }
 ```
 </details>
 

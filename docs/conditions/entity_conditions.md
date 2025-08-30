@@ -191,7 +191,8 @@ public boolean verifCondition(EntityConditionRequest request) {
         return false;
 
 
-    } else return false;
+    } 
+	return true;
 }
 ```
 </details>

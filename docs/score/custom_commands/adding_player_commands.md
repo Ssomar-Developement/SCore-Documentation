@@ -107,20 +107,22 @@ Example:
 public class TestDev extends PlayerCommand {}
 ```
 
-## Setup arguments for your custom command 
+## Setup arguments for your custom command and put it in the class constructor
 
 Example:
 ```java
-CommandSetting attribute = new CommandSetting("attribute", 0, String.class, "SCALE");
-CommandSetting amount = new CommandSetting("amount", 1, Double.class, 1);
-CommandSetting operation = new CommandSetting("operation", 2, String.class, "ADD_NUMBER");
-CommandSetting timeinticks = new CommandSetting("timeinticks", 3, Long.class, 20);
-List<CommandSetting> settings = getSettings();
-settings.add(attribute);
-settings.add(amount);
-settings.add(operation);
-settings.add(timeinticks);
-setNewSettingsMode(true);
+public AddTemporaryAttribute() {
+    CommandSetting attribute = new CommandSetting("attribute", 0, String.class, "SCALE");
+    CommandSetting amount = new CommandSetting("amount", 1, Double.class, 1);
+    CommandSetting operation = new CommandSetting("operation", 2, String.class, "ADD_NUMBER");
+    CommandSetting timeinticks = new CommandSetting("timeinticks", 3, Long.class, 20);
+    List<CommandSetting> settings = getSettings();
+    settings.add(attribute);
+    settings.add(amount);
+    settings.add(operation);
+    settings.add(timeinticks);
+    setNewSettingsMode(true);
+}
 ```
 Properties of `CommandSettings()`
 - First argument is the tag's name. Its used like this in practice: 
@@ -199,6 +201,14 @@ Example:
 - `launcher` = The player who executed the custom command via ei item or the `player:` specified when running `/score run-player-command`<br />
 - `receiver` = The player who is the "victim" of the custom command. Usually is used in commands such as DAMAGE in targetCommands<br />
 - `sCommandToExec` = Contains various information such as the values placed in the custom command's arguments<br />
+:::
+:::info
+How to use the command argument system to pull such values?  
+Example:
+```java
+sCommandToExec.getSettingValue("attribute");
+```
+The argument inside `.getSettingValue()` references the value provided in the arugment when writing the custom command
 :::
 
 ## Add an instance of your custom command at PlayerCommandManager.java

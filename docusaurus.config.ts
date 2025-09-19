@@ -56,19 +56,41 @@ const config: Config = {
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
+    tableOfContents: {
+      minHeadingLevel: 2,
+      maxHeadingLevel: 6
+    },
     navbar: {
       title: 'SCore Development',
       logo: {
         alt: 'My Site Logo',
         src: '/assets/score.png',
       },
+      // ==============================================================================================================================================================
+      // 
+      // Add new items here if you want to add a dedicated page for other plugins
+      // 
+      // ==============================================================================================================================================================
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'SCore',
           position: 'left',
-          label: 'Tutorial',
-        }
+          label: 'SCore',
+        },
+        
+        {
+          type: 'docSidebar',
+          sidebarId: 'ExecutableCrafting',
+          position: 'left',
+          label: 'ExecutableCrafting',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'ExecutableBlocks',
+          position: 'left',
+          label: 'ExecutableBlocks',
+        },
       ],
     },
     footer: {
@@ -78,8 +100,8 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: 'SCore',
+              to: '/docs/score/intro',
             },
           ],
         },
@@ -109,7 +131,10 @@ const config: Config = {
       additionalLanguages: ['java']
       
     },
+
   } satisfies Preset.ThemeConfig,
 };
+
+
 
 export default config;

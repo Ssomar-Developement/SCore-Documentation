@@ -155,7 +155,7 @@ So you'd want to add `return false` statements across your logic to "fail" your 
 Write the condition logic inside of the hasCondition() if statement.
 
 :::tip
-Go to [Dependency Management](../dependency_management.md) if you want to try adding external api
+Go to [Dependency Management](../library_tools/dependency_management.md) if you want to try adding external api
 to your conditions.
 :::
 :::warning

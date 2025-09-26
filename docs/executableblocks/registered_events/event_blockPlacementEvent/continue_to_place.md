@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Placement Method Call (continueToPlace())
+# Placement Method Call (continueToPlace()) For EB
 
 Class File: `com.ssomar.executableblocks.events.mechanics.PlaceEBPListener.java`
 

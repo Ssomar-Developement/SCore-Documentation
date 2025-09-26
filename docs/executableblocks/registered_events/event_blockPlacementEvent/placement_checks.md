@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Placement Checks (onBlockPlaceEvent())
+# Placement Checks (onBlockPlaceEvent()) For EB
 
 Class File: `com.ssomar.executableblocks.events.mechanics.PlaceEBPListener.java`
 

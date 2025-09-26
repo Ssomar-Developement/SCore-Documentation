@@ -1,0 +1,8 @@
+{
+  "label": "Block Placements",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Relevant information you'd need when dealing with events related to placing ExecutableBlocks"
+  }
+}

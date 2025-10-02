@@ -29,6 +29,10 @@ If you have plans to change any of the entries here, perform due care in updatin
 in the source code and documentation.
 :::
 
+## SCore
+`#s0001` - PlantInSquare.java => run() => On Comment "//#2" : About how PLANT_IN_SQUARE is used on an unsupported block
+`#s0002` - PlantInSquare.java => run() => Lists down the resources to be used to plant the crops
+
 ## ExecutableBlocks
 `#b0001` - PlaceEBPListener.java => onBlockPlaceEvent() => If the ExecutableBlock's Creation Type is either ExecutableItems or ItemsAdder when right-clicking a block (in attempts to place it) <br/>
 `#b0002` - ItemsAdderEvents.java => onPlayerInteractEntityEvent() is triggered in general   <br/>
@@ -47,3 +51,4 @@ in the source code and documentation.
 `#b0015` - ItemsAdderEvents.java => onEntityDamageByEntityEvent() after failing eB.getItemsAdderFeatures().getValue().isPresent() condition<br/>
 `#b0016` - ExecutableBlockPlaced.java => breakBlock() is triggered in general<br/>
 `#b0017` - ExecutableBlockPlaced.java => breakBlock() is triggered in general<br/>
+

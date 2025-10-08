@@ -184,6 +184,27 @@ public ChatColor getExtraColor() {
 }
 ```
 
+### Add the verify method override
+```java
+@Override
+public Optional<String> verify(List<String> args, boolean isFinalVerification) {
+    return Optional.empty();
+}
+```
+The purpose of this method is to prevent the command from being applied to the ingame commands editor. If you want to add constraints, you can write it like:
+```java
+@Override
+public Optional<String> verify(List<String> args, boolean isFinalVerification) {
+    if (args.size() < 1) return Optional.of(notEnoughArgs + getTemplate());
+
+    ArgumentChecker ac = checkInteger(args.get(0), isFinalVerification, getTemplate());
+    if (!ac.isValid()) return Optional.of(ac.getError());
+
+    return Optional.empty();
+}
+```
+But keep in mind, this restriction method does not stop direct modifications from the edit-line option
+
 ### Add the code that will be executed when you run the custom command
 
 Example:

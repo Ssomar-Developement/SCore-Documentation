@@ -30,8 +30,20 @@ in the source code and documentation.
 :::
 
 ## SCore
-`#s0001` - PlantInSquare.java => run() => On Comment "//#2" : About how PLANT_IN_SQUARE is used on an unsupported block
-`#s0002` - PlantInSquare.java => run() => Lists down the resources to be used to plant the crops
+`#s0001` - PlantInSquare.java => run() => On Comment "//#2" : About how PLANT_IN_SQUARE is used on an unsupported block<br/>
+`#s0002` - PlantInSquare.java => run() => Lists down the resources to be used to plant the crops<br/>
+`#s0003` - ItemsAdderAPI.java => breakCustomBlock() is triggered in general<br/>
+`#s0004` - ItemsAdderAPI.java => breakCustomBlock() => If IA is installed && block isn't empty<br/>
+`#s0005` - ItemsAdderAPI.java => breakCustomBlock() => If custom block is not null<br/>
+`#s0006` - ItemsAdderAPI.java => breakCustomBlock() => If custom block is instance of ArmorStand<br/>
+`#s0007` - ItemsAdderAPI.java => breakCustomBlock() => If the armorstand has a name and is named "ItemsAdder_furniture"<br/>
+`#s0008` - ItemsAdderAPI.java => breakCustomBlock() => Said ArmorStand has no name<br/>
+`#s0009` - ItemsAdderAPI.java => breakCustomBlock() => Said ArmorStand has a different name other than "ItemsAdder_furniture"<br/>
+`#s0010` - SafeBreak.java => breakBlockWithEvent() is triggered in general<br/>
+`#s0011` - SafeBreak.java => breakBlockWithEvent() => player is not null<br/>
+`#s0012` - SafeBreak.java => breakBlockWithEvent() => Player instance is obtained just fine<br/>
+`#s0013` - SafeBreak.java => breakBlockWithEvent() => Player is null<br/>
+
 
 ## ExecutableBlocks
 `#b0001` - PlaceEBPListener.java => onBlockPlaceEvent() => If the ExecutableBlock's Creation Type is either ExecutableItems or ItemsAdder when right-clicking a block (in attempts to place it) <br/>

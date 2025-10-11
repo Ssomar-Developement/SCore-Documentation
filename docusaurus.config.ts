@@ -81,15 +81,21 @@ const config: Config = {
         
         {
           type: 'docSidebar',
-          sidebarId: 'ExecutableCrafting',
-          position: 'left',
-          label: 'ExecutableCrafting',
-        },
-        {
-          type: 'docSidebar',
           sidebarId: 'ExecutableBlocks',
           position: 'left',
           label: 'ExecutableBlocks',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'ExecutableItems',
+          position: 'left',
+          label: 'ExecutableItems',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'ExecutableCrafting',
+          position: 'left',
+          label: 'ExecutableCrafting',
         },
       ],
     },

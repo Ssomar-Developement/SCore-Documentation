@@ -1,3 +1,7 @@
+---
+sidebar_position: 9
+---
+
 # Debug Codes
 
 This page is for listing details of a debug message and where to find them via `SHIFT+CTRL+F`
@@ -44,6 +48,14 @@ in the source code and documentation.
 `#s0012` - SafeBreak.java => breakBlockWithEvent() => Player instance is obtained just fine<br/>
 `#s0013` - SafeBreak.java => breakBlockWithEvent() => Player is null<br/>
 
+## ExecutableItems
+`#i0001` - ExecutableItemObject.java => applyUsageModification() is triggered in general<br/>
+`#i0002` - ExecutableItemObject.java => applyUsageModification() => if isAConsumptionOption is true<br/>
+`#i0003` - ExecutableItemObject.java => applyUsageModification() => after the activator checks<br/>
+`#i0004` - ExecutableItemObject.java => applyUsageModification() => prints usage, usageModification, calculUsage, slot details<br/>
+`#i0005` - ExecutableItemObject.java => applyUsageModification() => if usage is -1 or 0<br/>
+`#i0006` - ExecutableItemObject.java => applyUsageModification() => if the sum of the item's usage and the activator's usage modification is less than or equal to 0<br/>
+`#i0007` - ExecutableItemObject.java => applyUsageModification() => if the sum of the item's usage and the activator's usage modification is greater than 0<br/>
 
 ## ExecutableBlocks
 `#b0001` - PlaceEBPListener.java => onBlockPlaceEvent() => If the ExecutableBlock's Creation Type is either ExecutableItems or ItemsAdder when right-clicking a block (in attempts to place it) <br/>

@@ -24,6 +24,13 @@ function HomepageHeader() {
             Start Reading the SCore Documentation!
           </Link>
         </div>
+        <br />
+        <div style={{ backgroundColor: "white", padding: "10px" }}>
+          Documentation Reminders: <br/>
+          <hr/>
+          Write important notes about editing interfaces: <br/>
+          https://github.com/Ssomar-Developement/SCore/pull/87#discussion_r2462706259
+        </div>
       </div>
     </header>
   );

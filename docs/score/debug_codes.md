@@ -47,6 +47,25 @@ in the source code and documentation.
 `#s0011` - SafeBreak.java => breakBlockWithEvent() => player is not null<br/>
 `#s0012` - SafeBreak.java => breakBlockWithEvent() => Player instance is obtained just fine<br/>
 `#s0013` - SafeBreak.java => breakBlockWithEvent() => Player is null<br/>
+`#s0014` - AbsorptionManager.java => applyAbsorption() is triggered in general<br/>
+`#s0015` - AbsorptionManager.java => onConnect() is triggered in general<br/>
+`#s0016` - AbsorptionManager.java => onConnect() prints the amount of rows retrieved from the query<br/>
+`#s0017` - AbsorptionQuery.java => insertToRecords() is triggered in general<br/>
+`#s0018` - AbsorptionQuery.java => getAbsorptionsToRemove() is triggered in general<br/>
+`#s0019` - AttributeUtils.java => getAttribute() is triggered in general<br/>
+`#s0020` - AttributeUtils.java => getAttribute() => returns Attribute from iteration<br/>
+`#s0021` - AttributeUtils.java => getAttribute() => checks switch case statement<br/>
+`#s0022` - SafeBreak.java => breakBlockWithEvent() => Player is null or is not opped<br/>
+`#s0023` - SafeBreak.java => breakBlockWithEvent() => Player is not null<br/>
+`#s0024` - SafeBreak.java => breakBlockWithEvent() => generateBreakEvent is true<br/>
+`#s0025` - ItemsAdderAPI.java => breakCustomBlock() => generateBreakEvent is true<br/>
+`#s0026` - SafeBreak.java => breakBlockWithEvent() => Player is null<br/>
+`#s0027` - ItemsAdderAPI.java => breakCustomBlock() => EB+IA Block finally removed<br/>
+`#s0028` - ItemsAdderAPI.java => breakCustomBlock() => Detected armor stand is not in the intended location<br/>
+`#s0029` - ItemsAdderAPI.java => breakCustomBlock() => ExecutableBlock block instance is removed in that location<br/>
+`#s0030` - SafeBreak.java => breakBlockWithEvent() => ItemsAdder is enabled & breakCustomBlock succeeded. RETURN<br/>
+`#s0031` - ItemsAdderAPI.java => breakCustomBlock() => ExecutableBlock block instance is removed in that location<br/>
+`#s0032` - SafeBreak.java => breakEB() is triggered in general and if EB is enabled<br/>
 
 ## ExecutableItems
 `#i0001` - ExecutableItemObject.java => applyUsageModification() is triggered in general<br/>
@@ -74,5 +93,17 @@ in the source code and documentation.
 `#b0014` - ItemsAdderEvents.java => onEntityDamageByEntityEvent() after breaking an IA based EB Block<br/>
 `#b0015` - ItemsAdderEvents.java => onEntityDamageByEntityEvent() after failing eB.getItemsAdderFeatures().getValue().isPresent() condition<br/>
 `#b0016` - ExecutableBlockPlaced.java => breakBlock() is triggered in general<br/>
-`#b0017` - ExecutableBlockPlaced.java => breakBlock() is triggered in general<br/>
+`#b0017` - BreakExecutableBlockListener.java => onBlockBreakEventOraxenOrItemsAdder() is triggered in general<br/>
+`#b0018` - ExecutableBlockPlaced.java => dropBlock() is triggered in general<br/>
+`#b0019` - ExecutableBlockPlaced.java => dropBlock() => drop is true and getExecutableBlock().getDropBlockIfItIsBroken().getValue() is true<br/>
+`#b0020` - ExecutableBlockPlaced.java => dropBlock() => Conditions at #b0019 failed<br/>
+`#b0022` - ExecutableBlockPlaced.java => runBreakBlockAnimation() is triggered in general <br/>
+`#b0023` - ItemsAdderEvents.java => onEntityDamageByEntityEvent() => eBP.remove() will be executed <br/>
+`#b0024` - BreakExecutableBlockListener.java => onBlockBreakEventOraxenOrItemsAdder() => prints the block location<br/>
+`#b0025` - BreakExecutableBlockListener.java => onBlockBreakEventOraxenOrItemsAdder() => finally break the block<br/>
+`#b0026` - BreakExecutableBlockListener.java => onBlockBreakEventOraxenOrItemsAdder() => Early return due to EB being either IA or EI<br/>
+`#b0027` - BreakExecutableBlockListener.java => remove() is called in general<br/>
+`#b0028` - ExecutableBlockPlaced.java => dropBlock() => drop location failed<br/>
+`#b0029` - ExecutableBlockPlaced.java => dropBlock() => drop location succeeded<br/>
+
 

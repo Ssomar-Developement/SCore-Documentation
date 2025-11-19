@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkscore_documentation=globalThis.webpackChunkscore_documentation||[]).push([[2325],{2325:(e,c,a)=>{a.d(c,{createPacketServices:()=>o.$});var o=a(1477);a(7960)}}]);

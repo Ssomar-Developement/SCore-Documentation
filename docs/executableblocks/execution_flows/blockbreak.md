@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 # Block Breaks
 ## Breaking an IA+EB Block Normally (ARMOR STAND ENTITY)

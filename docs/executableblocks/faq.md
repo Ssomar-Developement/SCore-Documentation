@@ -4,7 +4,8 @@ sidebar_position: 2
 
 # FAQ
 
-## How to remove placed ExecutableBlocks via code?
+:::info
+## Q: How to remove placed ExecutableBlocks via code?
 Class File: `com.ssomar.score.utils.safebreak.SafeBreak`
 Method: `public static boolean breakEB(@Nullable Player player, Block block, boolean drop)`
 
@@ -32,3 +33,11 @@ Example:
 ```java
 breakEB(null, block, false);
 ```
+:::
+## &nbsp;<hr/>&nbsp;
+
+:::info
+## Q: Where to find the code that's responsible for dropping blocks?
+
+### A: Go to `com.ssomar.executableblocks.executableblocks.placedblocks.ExecutableBlockPlaced#dropBlock`
+:::

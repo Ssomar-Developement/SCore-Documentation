@@ -185,6 +185,10 @@ public ChatColor getExtraColor() {
 ```
 
 ### Add the verify method override
+:::info
+This is only useful when dealing with the old custom cmd arg system. If you're using
+the new arg system, just have the verify() method `return Optional.empty();`
+:::
 ```java
 @Override
 public Optional<String> verify(List<String> args, boolean isFinalVerification) {
@@ -228,8 +232,9 @@ How to use the command argument system to pull such values?
 Example:
 ```java
 sCommandToExec.getSettingValue("attribute");
+Attribute attribute = (Attribute) sCommandToExec.getSettingValue("attribute");
 ```
-The argument inside `.getSettingValue()` references the value provided in the arugment when writing the custom command
+The argument inside `.getSettingValue()` references the value provided in the arugment when writing the custom command. You also have to typecast the return value to the correct object type
 :::
 
 ## Add an instance of your custom command at PlayerCommandManager.java

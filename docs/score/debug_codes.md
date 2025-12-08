@@ -66,6 +66,10 @@ in the source code and documentation.
 `#s0030` - SafeBreak.java => breakBlockWithEvent() => ItemsAdder is enabled & breakCustomBlock succeeded. RETURN<br/>
 `#s0031` - ItemsAdderAPI.java => breakCustomBlock() => ExecutableBlock block instance is removed in that location<br/>
 `#s0032` - SafeBreak.java => breakEB() is triggered in general and if EB is enabled<br/>
+<br/><hr/>
+
+### Debug Groups  
+`#s_1` - For tracking the code flow for delayed commands that uses `[<OFFLINE>]`
 
 ## ExecutableItems
 `#i0001` - ExecutableItemObject.java => applyUsageModification() is triggered in general<br/>

@@ -114,7 +114,7 @@ We will be looking back at this on repeat to learn how to properly implement a c
 
 ### Select what Feature Parent Interface to use
 
-In this page, we will use [ListUncoloredStringFeature](../feature_parent_interface/ListUncoloredStringFeature.md) to request
+In this page, we will use [ListUncoloredStringFeature](../../library_tools/feature_parent_interface/ListUncoloredStringFeature.md) to request
 the user for uncolored string entries.
 
 ### Then finalize the extend class's properties
@@ -155,7 +155,7 @@ So you'd want to add `return false` statements across your logic to "fail" your 
 Write the condition logic inside of the hasCondition() if statement.
 
 :::tip
-Go to [Dependency Management](../library_tools/dependency_management.md) if you want to try adding external api
+Go to [Dependency Management](../../library_tools/dependency_management.md) if you want to try adding external api
 to your conditions.
 :::
 :::warning

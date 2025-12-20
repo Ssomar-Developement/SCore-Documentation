@@ -5,3 +5,6 @@
 
 ## Adding more blocks to a candle for example
 ![alt text](image-4.png)
+
+## Placing Regular Blocks
+![alt text](image-5.png)

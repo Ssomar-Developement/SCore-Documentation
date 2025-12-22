@@ -4,7 +4,6 @@ sidebar_position: 1
 
 # Database Access
 
-
 ## How to add a dedicated class for your table to query from?
 
 Package: `com.ssomar.score.data`
@@ -63,5 +62,7 @@ AbsorptionQuery.createNewTable(connect());
 
 :::info
 ## How to provide Query Class methods the Connection object?
-In order to be able to pass the Connection object to the methods, use `Database.getInstance().connect()`
+In order to be able to pass the Connection object to the methods, use `Database.getInstance().connect()`  
+  
+<b>BUT MAKE SURE TO WRAP THIS METHOD CALL IN AN ASYNC RUNNABLE OR ELSE IT WILL HAVE MS COMPLICATIONS IN THE MAIN THREAD</b>
 :::

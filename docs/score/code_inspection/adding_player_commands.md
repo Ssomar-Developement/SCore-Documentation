@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 10
 ---
 
-# Adding Player Commands
+# ✍ Adding Player Commands
 
 
 <details>
@@ -127,7 +127,7 @@ public AddTemporaryAttribute() {
 Properties of `CommandSettings()`
 - First argument is the tag's name. Its used like this in practice: 
     - `ADD_TEMPORARY_ATTRIBUTE attribute:ATTACK_DAMAGE`
-- Second argument is for the old system used by SCore to support old formats and to let the plugin know which argument to assign it to based on index
+- Second argument is for the old system used by SCore to support old formats and to let the plugin know which argument to assign it to based on index. If you're not interested in giving a position in the argument index, just type `-1`. This way, the only way to provide values to this argument is by typing the argument's prefix.
 - Third argument is the expected datatype the argument will transform into. Usually when you type things in chat, it's default is `String` so in a way, you're adding strict typing to your command arguments.
 - The fourth argument is the supposed default value if the user fails to provide a value to a command argument.
 

@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 10
 ---
 
-# Entity Conditions
+# ✍ Adding Entity Conditions
 
 This page will help you in how to create entity conditions for SCore
 

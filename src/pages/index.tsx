@@ -30,6 +30,7 @@ function HomepageHeader() {
           <hr/>
           Write important notes about editing interfaces: <br/>
           https://github.com/Ssomar-Developement/SCore/pull/87#discussion_r2462706259
+
         </div>
       </div>
     </header>

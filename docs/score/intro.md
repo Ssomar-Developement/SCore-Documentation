@@ -74,3 +74,9 @@ public class SsomarDev {
 ```
 - Never immediately push your changes to the main branch unless you're absolutely
 sure that it's safe to push without Ssomar's second thoughts
+
+## Side Note: Notification after compilation
+- SCore takes a bit over a minute to compile and it's boring as shit. Run this (Assuming you have windows) to make your computer notifies you. IDK why intellij doesn't have this <br/>
+```
+mvn clean package install -PSpecial70; if ($?) { Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('Compilation Done. Start moving') }
+```

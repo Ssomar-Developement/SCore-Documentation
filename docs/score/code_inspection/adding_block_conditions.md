@@ -1,8 +1,5 @@
----
-sidebar_position: 10
----
+# ✍ Adding Block Conditions
 
-# ✍ Adding Entity Conditions
 
 This page will help you in how to create entity conditions for SCore
 
@@ -14,15 +11,15 @@ Target package: `src.main.java.com.ssomar.score.features.custom`
 
 Go add an enum for your custom condition in FeatureSettingsSCore enum. When
 writing the enum for it, write it in camel case.  
-Ex: 
+Ex:
 ```java
 ifEntityInRegion(getFeatureSettings("ifEntityInRegion",SavingVerbosityLevel.SAVE_ONLY_WHEN_DIFFERENT_DEFAULT))
 ```
 
-## Go to the `entity` package
+## Go to the `block` package
 This will contain the files responsible for entity conditions
 
-## Go to the `entity.condition` package
+## Go to the `block.condition` package
 You will create your custom condition's class in this package.
 
 ## Create the custom class
@@ -34,76 +31,67 @@ To study how to create a custom entity condition, we will use the IfSheepColor.j
 
 <details>
 
-<summary>Source code of IfSeepColor.java</summary>
+<summary>Source code of IfBlockAge.java</summary>
 
-```java title="IfSheepColor.java"
-package com.ssomar.score.features.custom.conditions.entity.condition;
+```java title="IfBlockAge.java"
+package com.ssomar.score.features.custom.conditions.block.condition;
 
 import com.ssomar.score.features.FeatureParentInterface;
 import com.ssomar.score.features.FeatureSettingsSCore;
-import com.ssomar.score.features.custom.conditions.entity.EntityConditionFeature;
-import com.ssomar.score.features.custom.conditions.entity.EntityConditionRequest;
-import com.ssomar.score.features.types.list.ListUncoloredStringFeature;
-import com.ssomar.score.utils.strings.StringConverter;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.Sheep;
+import com.ssomar.score.features.custom.conditions.block.BlockConditionFeature;
+import com.ssomar.score.features.custom.conditions.block.BlockConditionRequest;
+import com.ssomar.score.features.types.NumberConditionFeature;
+import com.ssomar.score.utils.strings.StringCalculation;
+import lombok.Getter;
+import lombok.Setter;
+import org.bukkit.block.Block;
+import org.bukkit.block.data.Ageable;
+import org.bukkit.entity.Player;
 
-import java.util.ArrayList;
 import java.util.Optional;
 
-public class IfSheepColor extends EntityConditionFeature<ListUncoloredStringFeature, IfSheepColor> {
-    public IfSheepColor(FeatureParentInterface parent) {
-        super(parent, FeatureSettingsSCore.ifSheepColor);
+@Getter
+@Setter
+public class IfBlockAge extends BlockConditionFeature<NumberConditionFeature, IfBlockAge> {
+
+
+    public IfBlockAge(FeatureParentInterface parent) {
+        super(parent,  FeatureSettingsSCore.ifBlockAge);
     }
 
     @Override
-    public boolean verifCondition(EntityConditionRequest request) {
-        if (hasCondition()) {
-
-
-            Entity entity = request.getEntity();
-            // return false automatically if entity is not sheep
-            if (!(entity instanceof Sheep)) return false;
-
-            boolean notValid = true;
-            for (String name : getCondition().getValue(request.getSp())) {
-                if (StringConverter.decoloredString(
-                        String.valueOf(
-                                ((Sheep) entity).getColor()
-                        )
-                ).equalsIgnoreCase(name)) {
-                    notValid = false;
-                    break;
-                }
-            }
-
-            if (notValid) {
-                runInvalidCondition(request);
-                return false;
-            }
-        }
-
-        return true;
+    public IfBlockAge getValue() {
+        return this;
     }
 
     @Override
     public void subReset() {
-        setCondition(new ListUncoloredStringFeature(getParent(), new ArrayList<>(), FeatureSettingsSCore.ifSheepColor, Optional.empty()));
+        setCondition(new NumberConditionFeature(getParent(), FeatureSettingsSCore.ifBlockAge));
     }
 
     @Override
     public boolean hasCondition() {
-        return !getCondition().getValue().isEmpty();
+        return getCondition().getValue().isPresent();
     }
 
     @Override
-    public IfSheepColor getNewInstance(FeatureParentInterface newParent) {
-        return new IfSheepColor(newParent);
+    public IfBlockAge getNewInstance(FeatureParentInterface parent) {
+        return new IfBlockAge(parent);
     }
 
     @Override
-    public IfSheepColor getValue() {
-        return this;
+    public boolean verifCondition(BlockConditionRequest request) {
+        Optional<Player> playerOpt = request.getPlayerOpt();
+        Block b = request.getBlock();
+        if (b.getState().getBlockData() instanceof Ageable) {
+            Ageable ageable = (Ageable) b.getState().getBlockData();
+            int age = ageable.getAge();
+            if (hasCondition() && !StringCalculation.calculation(getCondition().getValue(playerOpt, request.getSp()).get(), age)) {
+                runInvalidCondition(request);
+                return false;
+            }
+        }
+        return true;
     }
 }
 ```
@@ -114,14 +102,14 @@ We will be looking back at this on repeat to learn how to properly implement a c
 
 ### Select what Feature Parent Interface to use
 
-In this page, we will use [ListUncoloredStringFeature](../../library_tools/feature_parent_interface/ListUncoloredStringFeature.md) to request
+In this page, we will use [ListUncoloredStringFeature](../library_tools/feature_parent_interface/ListUncoloredStringFeature.md) to request
 the user for uncolored string entries.
 
 ### Then finalize the extend class's properties
 
 In the parent class of our custom entity condition, it will look like this:
 ```java
-public class IfEntityInRegion extends EntityConditionFeature<ListUncoloredStringFeature, IfEntityInRegion>
+public class IfBlockAge extends BlockConditionFeature<NumberConditionFeature, IfBlockAge> 
 ```
 The second argument in the EntityConditionFeature generic must be the custom condition's class id.
 
@@ -129,9 +117,9 @@ The second argument in the EntityConditionFeature generic must be the custom con
 ### Create the constructor
 
 ```java
-public IfEntityInRegion(FeatureParentInterface parent, FeatureSettingsInterface featureSetting) {
-        super(parent, FeatureSettingsSCore.ifEntityInRegion);
-    }
+public IfBlockAge(FeatureParentInterface parent) {
+    super(parent,  FeatureSettingsSCore.ifBlockAge);
+}
 ```
 
 ### Setup the condition's logic
@@ -140,31 +128,25 @@ The interface method that you will override is named `verifCondition`
 
 ```java
     @Override
-    public boolean verifCondition(EntityConditionRequest request) {
-        if (hasCondition()) {
-            
+    public boolean verifCondition(BlockConditionRequest request) {
+        Optional<Player> playerOpt = request.getPlayerOpt();
+        Block b = request.getBlock();
+        if (b.getState().getBlockData() instanceof Ageable) {
+            Ageable ageable = (Ageable) b.getState().getBlockData();
+            int age = ageable.getAge();
+            if (hasCondition() && !StringCalculation.calculation(getCondition().getValue(playerOpt, request.getSp()).get(), age)) {
+                runInvalidCondition(request);
+                return false;
+            }
         }
-
         return true;
     }
 ```
 
 The method has to return `true` to consider your condition in an ei item met.  
-So you'd want to add `return false` statements across your logic to "fail" your condition.  
-  
-Write the condition logic inside of the hasCondition() if statement.
+So you'd want to add `return false` statements across your logic to "fail" your condition.
 
-:::tip
-Go to [Dependency Management](../../library_tools/dependency_management.md) if you want to try adding external api
-to your conditions.
-:::
-:::warning
-To make the condition return its invalid message, use the `runInvalidCondition(request);` method call before your `return false` statements.
-:::
-:::note
-How to get the instance of the entity involved for this condition?  
-`Entity entity = request.getEntity();`
-:::
+Write the condition logic inside of the hasCondition() if statement.
 
 <details>
 
@@ -211,7 +193,7 @@ Inside of the setCondition(), create a new object of your Feature Parent Interfa
 code to search for its arguments in the constructor method.
 
 ### Set hasCondition() return value
-Sample:  
+Sample:
 ```java
     @Override
     public boolean hasCondition() {

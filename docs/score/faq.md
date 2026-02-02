@@ -10,7 +10,7 @@ things will probably be sought after.
 :::info
 ## Q: Where to find what's responsible for parsing placeholders in cmds?
 
-### A: Go to [StringPlaceholder.java](./library_tools/utils/stringplaceholder.md)
+### A: Go to [this page](./execution_flows/command_execution.md)
 :::
 ## &nbsp;<hr/>&nbsp;
 :::info

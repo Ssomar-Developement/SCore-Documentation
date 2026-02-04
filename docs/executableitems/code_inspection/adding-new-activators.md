@@ -65,16 +65,16 @@ Go to `com.ssomar.executableitems.executableitems.activators.Option` and search 
 These methods contain a List variable. Observe how the other methods are written to figure out
 how to give your activators these options.
 
-`#getOptionWithDetailedDamageCauses` - for detailed damage causes
-`#getOptionWithCommand` - for detailed commands
-`#getOptionWithDrops` - for "Remove Drops" option
-`#getOptionWithDetailedClick` - for detailed click option 
-`#getOptionWithDetailedInput` - for detailed input
-`#getOptionWithDetailedEffects` - for detailed effects
-`#getOptionWithoutDetailedSlots` - for detailed slots
-`#getOptionWithOnlyTypeClick` - for click type
-`#getOptionResultOfProjectile` - for `mustBeAProjectileLaunchWithTheSameEI`
-`#getOptionWithTargetBlockSt` - for block conditions & detailed blocks & entity commands
+`#getOptionWithDetailedDamageCauses` - for detailed damage causes  
+`#getOptionWithCommand` - for detailed commands  
+`#getOptionWithDrops` - for "Remove Drops" option  
+`#getOptionWithDetailedClick` - for detailed click option   
+`#getOptionWithDetailedInput` - for detailed input  
+`#getOptionWithDetailedEffects` - for detailed effects  
+`#getOptionWithoutDetailedSlots` - for detailed slots  
+`#getOptionWithOnlyTypeClick` - for click type  
+`#getOptionResultOfProjectile` - for `mustBeAProjectileLaunchWithTheSameEI`  
+`#getOptionWithTargetBlockSt` - for block conditions & detailed blocks & entity commands  
 :::info
 You need these present in your activator's event call if you wish to make your activator support blocks.
 Example:

@@ -74,6 +74,8 @@ public class SsomarDev {
 ```
 - Never immediately push your changes to the main branch unless you're absolutely
 sure that it's safe to push without Ssomar's second thoughts
+- If you added critical changes such as new functions/variables to SCore and used it at ExecutableItems for example, you have to add the modified jar to the pull request. But of course,
+explain in detail of what you added to the SCore jar.
 
 ## Side Note: Notification after compilation
 - SCore takes a bit over a minute to compile and it's boring as shit. Run this (Assuming you have windows) to make your computer notifies you. IDK why intellij doesn't have this <br/>

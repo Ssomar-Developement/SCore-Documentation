@@ -1,0 +1,1 @@
+(globalThis.webpackChunkscore_documentation=globalThis.webpackChunkscore_documentation||[]).push([[8577],{549:(o,c,s)=>{"use strict";s.d(c,{A:()=>e});var a=s(8291);const e=a},5741:()=>{}}]);

@@ -1,4 +1,4 @@
-# Activator Options
+# ⚙ Activator Options
 
 ## `mustBeAProjectileLaunchWithTheSameEI`
 
@@ -26,3 +26,15 @@ if (mustBeAProjectileLaunchWithTheSameEI) {
     } else continue;
 }
 ```
+
+## `detailedSlots`
+
+Reference: `com/ssomar/executableitems/listeners/EventsManager.java:160`
+
+Code Snippet:
+```java
+for (SActivator activator : config.getActivators().getActivators(eInfo.getOption(), eInfo.getWhitelistActivatorsId(), eInfo.getWhitelistActivators())) {
+    ActivatorEIFeature activatorEIFeature = (ActivatorEIFeature) activator;
+    SsomarDev.testMsg(ChatColor.RED+">> Detailed Slots : "+activatorEIFeature.getDetailedSlots().getSlots(), true);
+```
+With this, you'll be able to get the slot values of that activator 

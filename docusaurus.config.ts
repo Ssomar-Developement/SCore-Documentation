@@ -104,6 +104,12 @@ const config: Config = {
           position: 'left',
           label: 'ExecutableCrafting',
         },
+        {
+          type: 'docSidebar',
+          sidebarId: 'MyFurniture',
+          position: 'left',
+          label: 'MyFurniture',
+        },
       ],
     },
     footer: {

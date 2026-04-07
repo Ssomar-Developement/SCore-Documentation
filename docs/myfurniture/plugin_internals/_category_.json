@@ -1,0 +1,8 @@
+{
+  "label": "⚙ Plugin Internals",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "A place to help where to look for plugin-scope specific features (Not to be confused for library classes)"
+  }
+}

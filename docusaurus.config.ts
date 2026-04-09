@@ -38,7 +38,6 @@ const config: Config = {
     mermaid: true,
   },
   themes: ['@docusaurus/theme-mermaid'],
-
   presets: [
     [
       'classic',
@@ -61,6 +60,11 @@ const config: Config = {
   plugins: [require.resolve('docusaurus-lunr-search')],
 
   themeConfig: {
+      mermaid: {
+      options: {
+        securityLevel: 'loose',
+      },
+      },
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     tableOfContents: {

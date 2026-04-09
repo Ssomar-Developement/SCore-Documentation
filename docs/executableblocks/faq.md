@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 # FAQ
@@ -40,4 +40,37 @@ breakEB(null, block, false);
 ## Q: Where to find the code that's responsible for dropping blocks?
 
 ### A: Go to `com.ssomar.executableblocks.executableblocks.placedblocks.ExecutableBlockPlaced#dropBlock`
+:::
+
+## &nbsp;<hr/>&nbsp;
+
+:::info 
+## Q: How to access the config details of an ExecutableBlock instance?
+
+### A: (Explanation)
+
+#### For ExecutableBlockObject
+```java
+// Step 1: Create an ExecutableBlockObject instance
+ItemStack is = e.getPlayer().getInventory().getItem(e.getHand()).clone();
+ExecutableBlockObject nEBO = new ExecutableBlockObject(is);
+
+// Step 2: Access config details via getConfig()
+Optional<Material> suspiciousBlockLoot = nEBO.getConfig().getSuspiciousBlockLoot().getValue();
+
+```
+
+#### For ExecutableBlock
+```java
+// Replace args[0] with a string that references a valid EB ID
+ExecutableBlock executableBlock;
+Optional<ExecutableBlock> oOpt = ExecutableBlocksManager.getInstance().getLoadedObjectWithID(args[0]);
+if (!oOpt.isPresent()) {
+    getSm().sendMessage(player, "&c" + ExecutableBlocks.plugin.getNameWithBrackets() + " &cInvalid block id: &6" + args[0] + " &7&o/eb place {EB_ID} {x} {y} {z} {world}");
+    return;
+} else executableBlock = oOpt.get();
+```
+Reference: `com.ssomar.executableblocks.commands.CommandsClass#runCommand`
+
+
 :::

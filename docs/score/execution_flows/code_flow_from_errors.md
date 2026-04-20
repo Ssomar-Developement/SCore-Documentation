@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# [!] Code Flows From Errors
+# ⛔ Code Flows From Errors
 
 :::info
 This page exists just for me to view where code is being executed. I could have made a dedicated page but right now, I'm not motivated

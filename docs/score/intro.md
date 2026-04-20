@@ -1,10 +1,16 @@
 ---
-sidebar_position: 1
+sidebar_position: 0
 ---
 
 # Tutorial Intro
 
 This page for now will provide information for the most basic and general things
+
+:::warning
+SCore will require java 25 
+- Ssomar ( 06/04/2026 )
+:::
+
 
 ## Get Plugin Instance
 :::info

@@ -4,6 +4,14 @@ sidebar_position: 2
 
 # Building an ItemStack from an EI Item Config
 
+:::info
+## Keywords for search:  
+<hr/>
+### ei give  
+### generate ei item  
+### how to make ei itemstack
+:::
+
 Class: `com.ssomar.executableitems.executableitems.ExecutableItem`  
 Method: `public ItemStack buildItem(int quantity, Optional<Player> playerOpt, Optional<Integer> usageOpt, Optional<ItemStack> itemStackOpt, Map<String, String> variables, Map<String, Object> settings)`
 
@@ -11,10 +19,19 @@ Upon reading the code of this method, it answers some specific questions you may
 
 :::info
 ## Q: What code handles the item meta of the ItemStack?  
-### A: When creating a new ExecutableItemObject and running the build() method, it will run the refresh() method
+### A: When creating a new ExecutableItemObject and running the build() method, the `build()` method from `ExecutableItemObject` class also executes the refresh method
 ```java
 ExecutableItemObject ei = new ExecutableItemObject(item, this, ownerUUID, usage);
 item = ei.build();
+```
+  
+In the `build()` method, it runs the `refresh()` to provide item data to the ItemStack that will be made.  
+```java
+        ItemStack item = null;
+        // ....
+        // ....
+        ExecutableItemObject ei = new ExecutableItemObject(item, this, ownerUUID, usage);
+        item = ei.build();
 ```
 
 Method: `com.ssomar.executableitems.executableitems.ExecutableItemObject#refresh`

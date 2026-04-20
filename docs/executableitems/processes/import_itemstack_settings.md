@@ -4,6 +4,12 @@ sidebar_position: 1
 
 # Import ItemStack Settings to EI
 
+:::info
+## Keywords for search:
+### ei create
+### hold item then run /ei create
+:::
+
 This page is all about what happens in the plugin when you hold an item with unique 
 features and run `/ei create`
 
@@ -28,3 +34,9 @@ for(FeatureInterface feature : result.getFeatures()) {
 If you visit the `getFeatures()` method's origin, you'd be sent to `com.ssomar.executableitems.executableitems.ExecutableItem`
 and as you scroll down, you'd see the `Features` instance variables. With that, you'd be able to view what unique item details
 are currently supported for import.
+
+## About Importing NBT Details
+
+The load() method used for importing nbt details from the held itemstack is at SCore's source code.  
+  
+[Click here to go to the page](../../score/execution_flows/processing_nbt_to_items#from-held-item-to-ei-config-via-ei-create)

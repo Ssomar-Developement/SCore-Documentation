@@ -11,7 +11,7 @@ sidebar_position: 2
 :::
 ## &nbsp;<hr/>&nbsp;
 :::info
-## How to setup custom activator-exclusive placeholders?
+## Q: How to setup custom activator-exclusive placeholders?
 
 ### A: Use this as reference:
 Sample:
@@ -36,3 +36,6 @@ public class PlayerExpChangeListener implements Listener {
 ```
 :::
 
+## Q: Errors such as get() methods are missing in compilation
+
+### A: Include the default profile during compilation

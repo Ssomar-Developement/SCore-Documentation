@@ -310,7 +310,7 @@ flowchart TD
     componentApplyTo["<code>applyTo(NBTCompound nbtCompound, boolean onlyIfDifferent)</code>"]
     iterateThroughChildNbts["Unpack NBT Compound and iterate through its child NBTs"]
 
-    ifValid["If valid, it will return true. And for some reason, the logic prevents the addition of other child nbts from being added, making it look like one child per nested level"]
+    ifValid["If valid, it will return true. This logic prevents nbt rewrite to maintain order of nbts"]
   end
 
   writeNBTTags --> listDownPdcRaws

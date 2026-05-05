@@ -150,7 +150,6 @@ Used By: `com.ssomar.executableitems.executableitems.ItemStackToExecutableItemCo
 
 This section is for showing you what's responsible for obtaining nbt details from an ExecutableItem's yml file and
 preparing it as a PDC or not.  
-
 :::info  
 ### Keywords for search
 #### how nbt is written
@@ -159,13 +158,17 @@ preparing it as a PDC or not.
 Other Resources: https://www.spigotmc.org/threads/are-persistentdatacontainers-and-nbt-tags-the-same.612958/
 :::  
 
-### Loading NBT Details from Item Configs to Memory
+### ⚙ Loading NBT Details from Item Configs to Memory
 Classes:  
 - `com.ssomar.executableitems.executableitems.ExecutableItemObject#refreshNbtTags`
 - `com.ssomar.score.features.custom.nbttags.NBTTags#load(com.ssomar.score.splugin.SPlugin, org.bukkit.configuration.ConfigurationSection, boolean)`
+- `com.ssomar.executableitems.executableitems.ExecutableItem`
  
 ```mermaid
 flowchart TD
+    subgraph ExecutableItem
+        startEI(["<code>load()</code>"])
+    end
     subgraph ExecutableItemObject
         start(["refreshNbtTags()"])
     end
@@ -190,7 +193,7 @@ flowchart TD
 
         iterateThroughList["Iterate through the components"]
     end
-
+    startEI -- "FeatureInterface load()" --> load
     start --> load
     load --> iterate
     iterate --> switchcase
@@ -202,7 +205,7 @@ flowchart TD
     iterateThroughList --> switchcase
 ```
 
-### Writing NBT To Items  
+### ⚙ Writing NBT To Items  
 - Used by ExecutableItems at `com.ssomar.executableitems.executableitems.ExecutableItemObject#refreshNbtTags`
 
 References:

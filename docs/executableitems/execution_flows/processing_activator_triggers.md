@@ -30,6 +30,7 @@ flowchart LR
 subgraph ActivatorEIFeature
     ACT_RunAll["getRunnableForAll"]
     ACT_Global["activateOptionGlobal"]
+    
 end
 
 subgraph Commands
@@ -45,7 +46,14 @@ subgraph EventsManager
     EM_All["activeOptionAllPlayer"]
     EM_Player["activeOptionForPlayer"]
     EM_ItemStack["activeOptionForPlayerForItemStack"]
-    EM_runWithException["runWithException"]
+end
+
+subgraph SActivator
+    SActivator_runWithEx["runWithException()"]
+end
+
+subgraph SActivator Inheritor
+    SA_run["run()"]
 end
 
 ACT_RunAll --> EM_All
@@ -57,7 +65,9 @@ EM_Entry --> EM_Option
 EM_Option --> EM_Player
 EM_All --> EM_Player
 EM_Player --> EM_ItemStack
-EM_ItemStack --> EM_runWithException
+EM_ItemStack --> SActivator_runWithEx
+
+SActivator_runWithEx --> SA_run
 
 classDef manager fill:#1e293b,color:#fff
 classDef feature fill:#065f46,color:#fff
@@ -121,3 +131,79 @@ Method: `com.ssomar.score.features.custom.activators.activator.SActivator#runWit
 Parent Object: `com.ssomar.executableitems.executableitems.ExecutableItemObject`
 EventInfo: 
 
+## Flowchart for ActivatorEIFeature
+Classes:
+- `com.ssomar.executableitems.executableitems.activators.ActivatorEIFeature`
+- `com.ssomar.score.utils.placeholders.StringPlaceholder`
+- `com.ssomar.score.commands.runnable.ActionInfo`
+- `com.ssomar.score.features.custom.cooldowns.CooldownFeature`
+```mermaid
+flowchart TD
+  subgraph ActivatorEIFeature
+    start(["run()"])
+    AEI_getEI["Typecast Object to (ExecutableItemObject)"]
+    AEI_TRY_mainhand["Check if slot should me mainhand"]
+    AEI_TRY_respawndeath["Check triggered activator and death state of player (For PLAYER_DEATH and PLAYER_RESPAWN)"]
+    AEI_TRY_noRunIfCancelled["Check if noActivatorRunIfTheEventIsCancelled is enabled and the event source is cancelled"]
+
+    AEI_TRY_slot["If event info requires mainhand, check if detailed slots has it enabled (isMainHand())"]
+    AEI_TRY_perm["Check if the player that executed the activator has permission to use the item"]
+    AEI_TRY_owner["Check if the player that executed is the owner if the item deamnds it to"]
+    AEI_TRY_usePerDay["Check if the player still has uses left for today"]
+
+    AEI_plch["And other conditions. too tired to list them for now"]
+
+    AEI_cooldown["Add cooldown"]
+  end
+
+  subgraph StringPlaceholder
+    SP_getInfo["Get block, material, entity, target player infos, usage, usage limit, 
+    ei id, item name, item material, durability, activator id, activator name, 
+    activator type, max use per day item, max use per day activator, block face, 
+    projectile used for execution, item variables, item owner, bow force, custom placeholders from
+    source activator, and effect details from PLAYER_RECEIVE_EFFECT activator for later replacement"]
+  end
+
+  subgraph ActionInfo
+    ACI_setVals["Saves details of activation slot, ExecutableItem object, detailed blocks, event from custom break command
+     (ex: if it's from MINEINCUBE, value is true), break cause, silence output, launcher, receiver, velocity, type of event
+     that's related to hitting/damaging something for later use"]
+  end
+
+  subgraph CooldownFeature
+    CDF_addCooldown["Check if player has nocd perm or not and check if cooldown value is not 0"]
+    subgraph Cooldown
+      CD_setPause["Check if cooldown should pause if player is offline and get the placeholder conditions for it"]
+    end
+    subgraph CooldownsManager
+      CDM_add["Add cooldown to cooldown manager"]
+    end
+    CDF_setCooldown["Set item cooldown for item and player"]
+  end
+
+  start --> AEI_getEI
+  AEI_getEI --> AEI_TRY_mainhand
+  AEI_TRY_mainhand --> AEI_TRY_respawndeath
+  AEI_TRY_respawndeath --> AEI_TRY_noRunIfCancelled
+  AEI_TRY_noRunIfCancelled -- "initialization" --> StringPlaceholder
+  SP_getInfo -- "initialization" --> ACI_setVals
+  ACI_setVals --> AEI_TRY_slot
+  AEI_TRY_slot --> AEI_TRY_perm
+  AEI_TRY_perm --> AEI_TRY_owner
+  AEI_TRY_owner --> AEI_TRY_usePerDay
+  AEI_TRY_usePerDay --> AEI_plch
+
+  AEI_plch --> AEI_cooldown --> CDF_addCooldown -- "initialization" --> Cooldown --> CDM_add -- "check if game is 1.21+ and visual cooldown is enabled" --> CDF_setCooldown 
+  AEI_cooldown --> tobecontinued
+
+
+
+
+
+
+
+
+
+
+
+```

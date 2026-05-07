@@ -1,0 +1,11 @@
+{
+  "label": "⚙ Execution Flows",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "Made to document the code flow of the plugin when certain actions are done"
+  },
+  "customProps": {
+    "icon": "/img/crafting_table.webp"
+  }
+}

@@ -34,5 +34,5 @@ things will probably be sought after.
 :::info
 ## Q: Where to find the latest build version of SEvents?
 
-### A: Visit https://jitpack.io/#Ssomar-Developement/SEvents/5ab963e38d
+### A: Visit https://jitpack.io/#Ssomar-Developement/SEvents
 :::

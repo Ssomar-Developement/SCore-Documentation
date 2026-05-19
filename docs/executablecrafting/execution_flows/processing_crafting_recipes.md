@@ -5,6 +5,11 @@ custom_edit_url: null
 ---
 # Processing Crafting Recipes
 
+:::warning
+Do not be confused if you find the recipe working while tinkering with the source code. As of this writing, ExecutableCrafting operates its custom crafting recipes by registering the crafting table
+recipe and utilizing custom logic to make custom recipe conditions to work such as `Custom Material`
+:::
+
 ## Evaluating Valid Crafting Table Recipes
 Classes:
 - `vayk.executablecrafting.events.CraftingTableListener`

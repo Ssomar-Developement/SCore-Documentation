@@ -2,6 +2,6 @@
 
 Class: `com.ssomar.score.features.custom.activators.activator.SActivator`
 
-```mermaid
-
-```
+:::info
+Page is empty for now
+:::

@@ -38,3 +38,12 @@ a.menu__link[href*="processing-crafting-recipes"] {
   background-size: 18px 18px;
   background-position: 13px center;
 }
+
+a[href*="how_to_menu"] .menu__link,
+a.menu__link[href*="how_to_menu"] {
+  padding-left: 40px;
+  background-image: url('/img/info.png');
+  background-repeat: no-repeat;
+  background-size: 18px 18px;
+  background-position: 13px center;
+}

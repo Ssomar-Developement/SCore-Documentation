@@ -1,0 +1,8 @@
+{
+  "label": "Menus/Ingame GUIs",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "This section is dedicated for studying on how to make use of UIs"
+  }
+}

@@ -114,6 +114,12 @@ const config: Config = {
           position: 'left',
           label: 'MyFurniture',
         },
+        {
+          type: 'docSidebar',
+          sidebarId: 'CustomPiglinTrades',
+          position: 'left',
+          label: 'CustomPiglinTrades',
+        },
       ],
     },
     footer: {

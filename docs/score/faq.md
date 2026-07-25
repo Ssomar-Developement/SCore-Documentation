@@ -8,6 +8,15 @@ This page is devoted to assisting developers and maintainers in finding classes.
 things will probably be sought after.
 
 :::info
+## Q: Lombok is properly set-up in this project but I still get variable errors
+
+### A: Run install command in maven plugin of your editor. There are other issues non-lombok related (ex: IntelliJ)
+> No clue why but when this happened to me, I had an improperly written class file that needed fixing. This confused me greatly because I was really sure I had lombok set-up properly but I guess that incorrectly written class file made it happen?? -Special70
+:::
+
+## &nbsp;<hr/>&nbsp;
+
+:::info
 ## Q: Where to find what's responsible for parsing placeholders in cmds?
 
 ### A: Go to [this page](./execution_flows/command_execution.md)

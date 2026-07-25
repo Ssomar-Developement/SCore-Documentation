@@ -101,7 +101,6 @@ We will be looking back at this on repeat to learn how to properly implement a c
 
 
 ### Select what Feature Parent Interface to use
-
 In this page, we will use [ListUncoloredStringFeature](../library_tools/feature_parent_interface/ListFeatureAbstract/ListUncoloredStringFeature.md) to request
 the user for uncolored string entries.
 

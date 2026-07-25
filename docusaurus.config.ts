@@ -15,12 +15,12 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://Ssomar-Developement.github.io',
+  url: 'https://SPlugins.github.io',
   baseUrl: '/SCore-Documentation/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'Ssomar-Developement', // the GitHub org/user name
+  organizationName: 'SPlugins', // the GitHub org/user name
   projectName: 'SCore-Documentation',      // the repo name
 
   onBrokenLinks: 'throw',

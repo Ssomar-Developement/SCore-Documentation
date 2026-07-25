@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunkscore_documentation=globalThis.webpackChunkscore_documentation||[]).push([[617],{617:(e,c,a)=>{a.d(c,{createPieServices:()=>o.f});var o=a(6769);a(7960)}}]);

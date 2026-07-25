@@ -15,7 +15,7 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://SPlugins.github.io',
+  url: 'https://splugins.github.io',
   baseUrl: '/SCore-Documentation/',
 
   // GitHub pages deployment config.
